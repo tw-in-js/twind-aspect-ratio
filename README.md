@@ -1,6 +1,6 @@
 # @twind/aspect-ratio
 
-A plugin for [Twind](https://twind.dev) that provides a composable API for giving elements a fixed aspect ratio.
+A [Twind](https://twind.dev) extension that provides a composable API for giving elements a fixed aspect ratio.
 
 [![MIT License](https://flat.badgen.net/github/license/tw-in-js/twind-aspect-ratio)](https://github.com/tw-in-js/twind-aspect-ratio/blob/main/LICENSE)
 [![Latest Release](https://flat.badgen.net/npm/v/@twind/aspect-ratio?icon=npm&label&cache=10800&color=blue)](https://www.npmjs.com/package/@twind/aspect-ratio)
@@ -56,7 +56,7 @@ document.body.innerHTML = `
 
 ## Usage as Plugin
 
-Add the plugin to plugins of your setup call:
+Add to plugins of your setup call:
 
 ```js
 import { aspectRatio } from '@twind/aspect-ratio'
