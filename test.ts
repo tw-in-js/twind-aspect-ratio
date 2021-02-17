@@ -110,10 +110,18 @@ test('using plugin', ({ tw, sheet }) => {
   sheet.reset()
 
   // Tagged class is accepted - shim would end in infinite loop
-  assert.is(tw`aspect-ratio`, 'aspect-ratio')
+  assert.is(tw`aspect-ratio`, '')
+  assert.equal(sheet.target, [])
+
+  sheet.reset()
+
+  // Tagged class is accepted - shim would end in infinite loop
+  assert.is(tw`aspect-w-16 aspect-h-9 aspect-ratio`, 'aspect-w-16 aspect-h-9 aspect-ratio')
   assert.equal(sheet.target, [
     '.aspect-ratio>*{position:absolute;height:100%;width:100%;top:0px;right:0px;bottom:0px;left:0px}',
     '.aspect-ratio{position:relative;padding-bottom:calc(var(--tw-aspect-h)/var(--tw-aspect-w)*100%)}',
+    '.aspect-w-16{--tw-aspect-w:16}',
+    '.aspect-h-9{--tw-aspect-h:9}',
   ])
 })
 

@@ -25,9 +25,11 @@ const aspectRatioCalc = () => ({
 const aspectRatio$ = (
   ratio: 'none' | { w?: string | number; h?: string | number },
   { theme, tag }: Context,
-): MaybeThunk<CSSRules> =>
+): MaybeThunk<CSSRules | ''> =>
   ratio === 'none'
     ? apply`static pb-0 children:(static h-auto w-auto inset-auto)`
+    : ratio.w === 'ratio'
+    ? ''
     : // {
       //     position: 'static',
       //     paddingBottom: '0',
@@ -42,10 +44,10 @@ const aspectRatio$ = (
       //     },
       //   }
       {
-        '--tw-aspect-w': ratio.w && ratio.w !== 'ratio' && theme('aspectRatio', '' + ratio.w, '' + ratio.w),
+        '--tw-aspect-w': ratio.w && theme('aspectRatio', '' + ratio.w, '' + ratio.w),
         '--tw-aspect-h': ratio.h && theme('aspectRatio', '' + ratio.h, '' + ratio.h),
         // Add additional aspect-ratio class only once
-        _: ratio.h && ratio.w !== 'ratio' ? tag('aspect-ratio') : undefined,
+        _: ratio.h ? tag('aspect-ratio') : undefined,
         ':global': {
           ['.' +
           tag(
@@ -70,7 +72,7 @@ const aspectRatio$ = (
 export const aspectRatio = ((
   ratio: 'none' | Ratio | string | number | string[],
   context: string | number | Context,
-): Directive<CSSRules> => {
+): Directive<CSSRules | ''> => {
   if (Array.isArray(ratio)) {
     switch (ratio[0]) {
       // aspect-w-16
