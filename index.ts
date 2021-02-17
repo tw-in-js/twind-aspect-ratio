@@ -28,8 +28,6 @@ const aspectRatio$ = (
 ): MaybeThunk<CSSRules> =>
   ratio === 'none'
     ? apply`static pb-0 children:(static h-auto w-auto inset-auto)`
-    : ratio.w === 'ratio'
-    ? {}
     : // {
       //     position: 'static',
       //     paddingBottom: '0',
@@ -44,7 +42,7 @@ const aspectRatio$ = (
       //     },
       //   }
       {
-        '--tw-aspect-w': ratio.w && theme('aspectRatio', '' + ratio.w, '' + ratio.w),
+        '--tw-aspect-w': ratio.w && ratio.w !== 'ratio' && theme('aspectRatio', '' + ratio.w, '' + ratio.w),
         '--tw-aspect-h': ratio.h && theme('aspectRatio', '' + ratio.h, '' + ratio.h),
         // Add additional aspect-ratio class only once
         _: ratio.h ? tag('aspect-ratio') : undefined,
