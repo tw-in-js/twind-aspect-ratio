@@ -1,6 +1,6 @@
 {
   "name": "@twind/aspect-ratio",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A twind extension that provides a composable API for giving elements a fixed aspect ratio.",
   "// mark as private to prevent accidental publish - use 'yarn release'": "",
   "private": true,
