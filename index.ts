@@ -45,7 +45,7 @@ const aspectRatio$ = (
         '--tw-aspect-w': ratio.w && ratio.w !== 'ratio' && theme('aspectRatio', '' + ratio.w, '' + ratio.w),
         '--tw-aspect-h': ratio.h && theme('aspectRatio', '' + ratio.h, '' + ratio.h),
         // Add additional aspect-ratio class only once
-        _: ratio.h ? tag('aspect-ratio') : undefined,
+        _: ratio.h && ratio.w !== 'ratio' ? tag('aspect-ratio') : undefined,
         ':global': {
           ['.' +
           tag(
