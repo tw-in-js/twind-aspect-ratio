@@ -63,7 +63,7 @@ import { aspectRatio } from '@twind/aspect-ratio'
 
 setup({
   plugins: {
-    'aspect': aspectRatio,
+    aspect: aspectRatio,
   },
 })
 ```
@@ -72,7 +72,12 @@ Combine the `aspect-w-{n}` and `aspect-h-{n}` classes to specify the aspect rati
 
 ```html
 <div class="aspect-w-16 aspect-h-9">
-  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe
+    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
 </div>
 ```
 
